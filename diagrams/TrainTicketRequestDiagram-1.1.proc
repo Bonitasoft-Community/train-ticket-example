@@ -96,7 +96,7 @@
           </inputMappings>
           <inputMappings xmi:type="process:InputMapping" xmi:id="_0L7XQKDrEe26LPKF8biRbw" subprocessTarget="amountToPay">
             <processSource xmi:type="expression:Expression" xmi:id="_0L7XQaDrEe26LPKF8biRbw" name="setAmountToPay()" content="if (trainTicketRequest.country == &quot;France&quot;)&#xD;&#xA;&#x9;return 500&#xD;&#xA;else&#xD;&#xA;&#x9;return 300" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Double">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_4SfukKDsEe26LPKF8biRbw" name="trainTicketRequest" dataType="_LibsnKDeEe26LPKF8biRbw" className="com.mycompany.model.TrainTicketRequest"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_ItxdsKF7Ee2Wffvb1B2Tmw" name="trainTicketRequest" dataType="_LibsnKDeEe26LPKF8biRbw" className="com.mycompany.model.TrainTicketRequest"/>
             </processSource>
           </inputMappings>
           <outputMappings xmi:type="process:OutputMapping" xmi:id="_LibsOqDeEe26LPKF8biRbw" subprocessSource="isAccepted" processTarget="_LibsUqDeEe26LPKF8biRbw"/>
@@ -189,7 +189,7 @@
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_LibsZqDeEe26LPKF8biRbw" name="no" target="_LibsPaDeEe26LPKF8biRbw" source="_LibsHaDeEe26LPKF8biRbw" isDefault="true">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_LibsZ6DeEe26LPKF8biRbw"/>
-        <condition xmi:type="expression:Expression" xmi:id="_LibsaKDeEe26LPKF8biRbw" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        <condition xmi:type="expression:Expression" xmi:id="_LibsaKDeEe26LPKF8biRbw" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_LibsaaDeEe26LPKF8biRbw" target="_LibsLqDeEe26LPKF8biRbw" source="_LibsB6DeEe26LPKF8biRbw">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_LibsaqDeEe26LPKF8biRbw"/>
