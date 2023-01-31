@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:connectorconfiguration="http://wwww.bonitasoft.org/model/connector/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xmlns:transitions="http://www.bonitasoft.org/ns/studio/process/decision/transitions" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision http://www.bonitasoft.org/ns/studio/process/decision/transitions http://www.bonitasoft.org/ns/studio/process#//decision/transitions">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:connectorconfiguration="http://wwww.bonitasoft.org/model/connector/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xmlns:transitions="http://www.bonitasoft.org/ns/studio/process/decision/transitions" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision http://www.bonitasoft.org/ns/studio/process/decision/transitions http://www.bonitasoft.org/ns/studio/process#//decision/transitions">
   <process:MainProcess xmi:id="_LibsAKDeEe26LPKF8biRbw" name="TrainTicketRequestDiagram" version="1.1" bonitaModelVersion="7.12.0-004">
     <elements xmi:type="process:Pool" xmi:id="_LibsAaDeEe26LPKF8biRbw" name="TrainTicketRequestPool" version="1.1">
       <elements xmi:type="process:Lane" xmi:id="_LibsAqDeEe26LPKF8biRbw" name="Traveler lane" actor="_Libsg6DeEe26LPKF8biRbw">
@@ -42,6 +42,43 @@
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_LibsFaDeEe26LPKF8biRbw" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_LibsFqDeEe26LPKF8biRbw" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_LibsF6DeEe26LPKF8biRbw" name="" content="" returnTypeFixed="true"/>
+          <connectors xmi:type="process:Connector" xmi:id="_s9RH0KFREe21p7tIQYBOFA" name="france-destinations-db-connector" definitionId="database-mysql" event="ON_ENTER" definitionVersion="1.0.0">
+            <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_s9RH0aFREe21p7tIQYBOFA" definitionId="database-mysql" version="1.0.0" modelVersion="7.12.0-004">
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_s9RH0qFREe21p7tIQYBOFA" key="driver">
+                <expression xmi:type="expression:Expression" xmi:id="_s9RH06FREe21p7tIQYBOFA" name="com.mysql.jdbc.Driver" content="com.mysql.jdbc.Driver" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_s9RH1KFREe21p7tIQYBOFA" key="url">
+                <expression xmi:type="expression:Expression" xmi:id="_s9RH1aFREe21p7tIQYBOFA" name="jdbc:mysql://localhost:3306/train" content="jdbc:mysql://localhost:3306/train" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_s9RH1qFREe21p7tIQYBOFA" key="script">
+                <expression xmi:type="expression:Expression" xmi:id="_s9RH16FREe21p7tIQYBOFA" name="query" content="SELECT NAME&#xA;  FROM `train`.`fr_stations`&#xA;" type="TYPE_PATTERN" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_s9RH2KFREe21p7tIQYBOFA" key="username">
+                <expression xmi:type="expression:Expression" xmi:id="_s9RH2aFREe21p7tIQYBOFA" name="root" content="root" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_s9RH2qFREe21p7tIQYBOFA" key="password">
+                <expression xmi:type="expression:Expression" xmi:id="_s9RH26FREe21p7tIQYBOFA" name="bpm_database_connection" content="bpm_database_connection" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_s9RH3KFREe21p7tIQYBOFA" key="separator">
+                <expression xmi:type="expression:Expression" xmi:id="_s9RH3aFREe21p7tIQYBOFA" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_s9RH3qFREe21p7tIQYBOFA" key="outputType">
+                <expression xmi:type="expression:Expression" xmi:id="_s9RH36FREe21p7tIQYBOFA" name="outputType" content="n_row" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_s9RH4KFREe21p7tIQYBOFA" key="wizardMode">
+                <expression xmi:type="expression:Expression" xmi:id="_s9RH4aFREe21p7tIQYBOFA" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+              </parameters>
+            </configuration>
+            <outputs xmi:type="expression:Operation" xmi:id="_s9RH4qFREe21p7tIQYBOFA">
+              <leftOperand xmi:type="expression:Expression" xmi:id="_s9RH46FREe21p7tIQYBOFA" name="availableDestinations" content="availableDestinations" type="TYPE_VARIABLE" returnType="java.util.List" returnTypeFixed="true">
+                <referencedElements xmi:type="process:Data" xmi:id="_s9RH5KFREe21p7tIQYBOFA" name="availableDestinations" multiple="true" dataType="_LibsmaDeEe26LPKF8biRbw"/>
+              </leftOperand>
+              <rightOperand xmi:type="expression:Expression" xmi:id="_s9RH5aFREe21p7tIQYBOFA" name="nRowOneColResult" content="nRowOneColResult" type="CONNECTOR_OUTPUT_TYPE" returnType="java.util.List">
+                <referencedElements xmi:type="definition:Output" xmi:id="_s9RH5qFREe21p7tIQYBOFA" name="nRowOneColResult" type="java.util.List"/>
+              </rightOperand>
+              <operator xmi:type="expression:Operator" xmi:id="_s9RH56FREe21p7tIQYBOFA" type="ASSIGNMENT"/>
+            </outputs>
+          </connectors>
           <loopCondition xmi:type="expression:Expression" xmi:id="_LibsGKDeEe26LPKF8biRbw" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_LibsGaDeEe26LPKF8biRbw" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_LibsGqDeEe26LPKF8biRbw" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
@@ -91,12 +128,12 @@
           <completionCondition xmi:type="expression:Expression" xmi:id="_LibsNqDeEe26LPKF8biRbw" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <inputMappings xmi:type="process:InputMapping" xmi:id="_LibsN6DeEe26LPKF8biRbw" subprocessTarget="idTrainTicketRequestToPay">
             <processSource xmi:type="expression:Expression" xmi:id="_LibsOKDeEe26LPKF8biRbw" name="getTrainTicketRequestId()" content="trainTicketRequest.persistenceId" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_xJPCUKDrEe26LPKF8biRbw" name="trainTicketRequest" dataType="_LibsnKDeEe26LPKF8biRbw" className="com.mycompany.model.TrainTicketRequest"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_hQtvMKFTEe21p7tIQYBOFA" name="trainTicketRequest" dataType="_LibsnKDeEe26LPKF8biRbw" className="com.mycompany.model.TrainTicketRequest"/>
             </processSource>
           </inputMappings>
           <inputMappings xmi:type="process:InputMapping" xmi:id="_0L7XQKDrEe26LPKF8biRbw" subprocessTarget="amountToPay">
             <processSource xmi:type="expression:Expression" xmi:id="_0L7XQaDrEe26LPKF8biRbw" name="setAmountToPay()" content="if (trainTicketRequest.country == &quot;France&quot;)&#xD;&#xA;&#x9;return 500&#xD;&#xA;else&#xD;&#xA;&#x9;return 300" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Double">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_4SfukKDsEe26LPKF8biRbw" name="trainTicketRequest" dataType="_LibsnKDeEe26LPKF8biRbw" className="com.mycompany.model.TrainTicketRequest"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_lHVbcKFTEe21p7tIQYBOFA" name="trainTicketRequest" dataType="_LibsnKDeEe26LPKF8biRbw" className="com.mycompany.model.TrainTicketRequest"/>
             </processSource>
           </inputMappings>
           <outputMappings xmi:type="process:OutputMapping" xmi:id="_LibsOqDeEe26LPKF8biRbw" subprocessSource="isAccepted" processTarget="_LibsUqDeEe26LPKF8biRbw"/>
@@ -167,6 +204,9 @@
       <data xmi:type="process:Data" xmi:id="_8WoAcKDuEe26LPKF8biRbw" name="requestId" dataType="_Libsl6DeEe26LPKF8biRbw">
         <defaultValue xmi:type="expression:Expression" xmi:id="_8WoAcaDuEe26LPKF8biRbw" content="" returnType="java.lang.Long"/>
       </data>
+      <data xmi:type="process:Data" xmi:id="_yMc-8KFQEe21p7tIQYBOFA" name="availableDestinations" multiple="true" dataType="_LibsmaDeEe26LPKF8biRbw">
+        <defaultValue xmi:type="expression:Expression" xmi:id="_yMdmAKFQEe21p7tIQYBOFA" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List"/>
+      </data>
       <formMapping xmi:type="process:FormMapping" xmi:id="_LibsWKDeEe26LPKF8biRbw">
         <targetForm xmi:type="expression:Expression" xmi:id="_ak-eIKDeEe26LPKF8biRbw" name="newTrainTicketRequest" content="99a8dfc5-22c1-432a-9218-6d6ace0b55f2" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
@@ -189,7 +229,7 @@
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_LibsZqDeEe26LPKF8biRbw" name="no" target="_LibsPaDeEe26LPKF8biRbw" source="_LibsHaDeEe26LPKF8biRbw" isDefault="true">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_LibsZ6DeEe26LPKF8biRbw"/>
-        <condition xmi:type="expression:Expression" xmi:id="_LibsaKDeEe26LPKF8biRbw" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        <condition xmi:type="expression:Expression" xmi:id="_LibsaKDeEe26LPKF8biRbw" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_LibsaaDeEe26LPKF8biRbw" target="_LibsLqDeEe26LPKF8biRbw" source="_LibsB6DeEe26LPKF8biRbw">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_LibsaqDeEe26LPKF8biRbw"/>

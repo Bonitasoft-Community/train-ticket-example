@@ -16,7 +16,10 @@
             <leftOperand xmi:type="expression:Expression" xmi:id="_jnaLIaDiEe26LPKF8biRbw" name="isAccepted" content="isAccepted" type="TYPE_VARIABLE" returnType="java.lang.Boolean">
               <referencedElements xmi:type="process:Data" xmi:id="_kMlUwKDiEe26LPKF8biRbw" name="isAccepted" dataType="_bqQA86DaEe26LPKF8biRbw"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_jnaLIqDiEe26LPKF8biRbw" name="checkCard()" content="def isValidated = true&#xD;&#xA;&#xD;&#xA;//check that card for the associated user exists&#xD;&#xA;&#xD;&#xA;// check that card has enough credit&#xD;&#xA;&#xD;&#xA;return isValidated" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean"/>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_jnaLIqDiEe26LPKF8biRbw" name="checkCard()" content="def isValidated = false&#xD;&#xA;&#xD;&#xA;def amountToPay = paymentRequest.amount&#xD;&#xA;//check that card for the associated user exists&#xD;&#xA;if (paymentCard){&#xD;&#xA;&#x9;if (paymentCard.credit >= amountToPay)&#xD;&#xA;&#x9;&#x9;return true&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;// check that card has enough credit&#xD;&#xA;&#xD;&#xA;return isValidated" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_jrn18KFUEe21p7tIQYBOFA" name="paymentCard" dataType="_bqQA-6DaEe26LPKF8biRbw" className="com.mycompany.model.gift.GiftCard"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_jrn18aFUEe21p7tIQYBOFA" name="paymentRequest" dataType="_bqQA-6DaEe26LPKF8biRbw" className="com.mycompany.model.GiftCardPaymentRequest"/>
+            </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_jnaLI6DiEe26LPKF8biRbw" type="ASSIGNMENT"/>
           </operations>
           <operations xmi:type="expression:Operation" xmi:id="_PWnWAKDjEe26LPKF8biRbw">
@@ -24,9 +27,9 @@
               <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_MCJJAKDtEe26LPKF8biRbw" name="paymentCard" dataType="_bqQA-6DaEe26LPKF8biRbw" className="com.mycompany.model.gift.GiftCard"/>
             </leftOperand>
             <rightOperand xmi:type="expression:Expression" xmi:id="_PWnWAqDjEe26LPKF8biRbw" name="calculateNewCredit()" content="def newCredit = 0&#xD;&#xA;try{&#xD;&#xA;&#x9;if (paymentCard != null){&#xD;&#xA;&#x9;&#x9;newCredit = paymentCard.credit&#xD;&#xA;&#x9;&#x9;if (isAccepted){&#xD;&#xA;&#x9;&#x9;&#x9;newCredit = paymentCard.credit - paymentRequest.amount&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;catch (Exception e)&#xD;&#xA;{&#xD;&#xA;&#x9;&#xD;&#xA;}&#xD;&#xA;return newCredit" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Double">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_uHYkcKD3Ee26LPKF8biRbw" name="paymentCard" dataType="_bqQA-6DaEe26LPKF8biRbw" className="com.mycompany.model.gift.GiftCard"/>
-              <referencedElements xmi:type="process:Data" xmi:id="_uHYkcaD3Ee26LPKF8biRbw" name="isAccepted" dataType="_bqQA86DaEe26LPKF8biRbw"/>
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_uHYkcqD3Ee26LPKF8biRbw" name="paymentRequest" dataType="_bqQA-6DaEe26LPKF8biRbw" className="com.mycompany.model.GiftCardPaymentRequest"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_pbMn4KFUEe21p7tIQYBOFA" name="paymentCard" dataType="_bqQA-6DaEe26LPKF8biRbw" className="com.mycompany.model.gift.GiftCard"/>
+              <referencedElements xmi:type="process:Data" xmi:id="_pbMn4aFUEe21p7tIQYBOFA" name="isAccepted" dataType="_bqQA86DaEe26LPKF8biRbw"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_pbMn4qFUEe21p7tIQYBOFA" name="paymentRequest" dataType="_bqQA-6DaEe26LPKF8biRbw" className="com.mycompany.model.GiftCardPaymentRequest"/>
             </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_PWnWA6DjEe26LPKF8biRbw" type="JAVA_METHOD" expression="setCredit">
               <inputTypes>java.lang.Double</inputTypes>
@@ -37,7 +40,7 @@
               <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_a75oAKDsEe26LPKF8biRbw" name="paymentRequest" dataType="_bqQA-6DaEe26LPKF8biRbw" className="com.mycompany.model.GiftCardPaymentRequest"/>
             </leftOperand>
             <rightOperand xmi:type="expression:Expression" xmi:id="_5rqsgqDiEe26LPKF8biRbw" name="setPaymentStatus()" content="if (isAccepted)&#xD;&#xA;&#x9;return &quot;ACCEPTED&quot;&#xD;&#xA;return &quot;REJECTED&quot;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-              <referencedElements xmi:type="process:Data" xmi:id="_MbRmQKDjEe26LPKF8biRbw" name="isAccepted" dataType="_bqQA86DaEe26LPKF8biRbw"/>
+              <referencedElements xmi:type="process:Data" xmi:id="_qnjtUKFUEe21p7tIQYBOFA" name="isAccepted" dataType="_bqQA86DaEe26LPKF8biRbw"/>
             </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_5rqsg6DiEe26LPKF8biRbw" type="JAVA_METHOD" expression="setStatus">
               <inputTypes>java.lang.String</inputTypes>
@@ -74,8 +77,8 @@
               <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_FtGLIKDwEe26LPKF8biRbw" name="paymentCard" dataType="_bqQA-6DaEe26LPKF8biRbw" className="com.mycompany.model.gift.GiftCard"/>
             </leftOperand>
             <rightOperand xmi:type="expression:Expression" xmi:id="_EKIjkqDwEe26LPKF8biRbw" name="findCard()" content="//giftCardDAO.findByNumberAndIdAssignee(paymentRequest.cardNumber, payerId)&#xD;&#xA;&#xD;&#xA;def requester =  paymentRequest.getTrainTicketRequest().idRequester&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;return giftCardDAO.findByNumberAndIdAssignee(paymentRequest.cardNumber, requester)" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.mycompany.model.gift.GiftCard">
-              <referencedElements xmi:type="expression:Expression" xmi:id="_sbhm8KD0Ee26LPKF8biRbw" name="giftCardDAO" content="giftCardDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.mycompany.model.gift.GiftCardDAO" returnTypeFixed="true"/>
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_sbhm8aD0Ee26LPKF8biRbw" name="paymentRequest" dataType="_bqQA-6DaEe26LPKF8biRbw" className="com.mycompany.model.GiftCardPaymentRequest"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_N4Vv0KFUEe21p7tIQYBOFA" name="giftCardDAO" content="giftCardDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.mycompany.model.gift.GiftCardDAO" returnTypeFixed="true"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_N4Vv0aFUEe21p7tIQYBOFA" name="paymentRequest" dataType="_bqQA-6DaEe26LPKF8biRbw" className="com.mycompany.model.GiftCardPaymentRequest"/>
             </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_EKIjk6DwEe26LPKF8biRbw" type="CREATE_BUSINESS_DATA"/>
           </operations>

@@ -2,7 +2,7 @@
   "modelVersion" : "2.3",
   "id" : "chooseDestinationForm",
   "name" : "chooseDestinationForm",
-  "lastUpdate" : 1675111496875,
+  "lastUpdate" : 1675161218984,
   "rows" : [
     [
       {
@@ -306,27 +306,27 @@
                         "lg" : 12
                       },
                       "propertyValues" : {
-                        "labelHidden" : {
+                        "cssClasses" : {
                           "type" : "constant",
-                          "value" : false
+                          "value" : ""
                         },
                         "hidden" : {
                           "type" : "constant",
                           "value" : false
                         },
-                        "labelPosition" : {
+                        "disabled" : {
                           "type" : "constant",
-                          "value" : "top"
+                          "value" : false
                         },
-                        "cssClasses" : {
+                        "required" : {
                           "type" : "constant",
-                          "value" : ""
+                          "value" : false
                         },
-                        "labelWidth" : {
+                        "allowHTML" : {
                           "type" : "constant",
-                          "value" : 1
+                          "value" : false
                         },
-                        "readOnly" : {
+                        "labelHidden" : {
                           "type" : "constant",
                           "value" : false
                         },
@@ -334,30 +334,36 @@
                           "type" : "interpolation",
                           "value" : "Destination"
                         },
+                        "labelPosition" : {
+                          "type" : "constant",
+                          "value" : "top"
+                        },
+                        "labelWidth" : {
+                          "type" : "constant",
+                          "value" : 1
+                        },
                         "placeholder" : {
+                          "type" : "interpolation"
+                        },
+                        "availableValues" : {
+                          "type" : "expression",
+                          "value" : "destinations.value"
+                        },
+                        "displayedKey" : {
+                          "type" : "expression",
+                          "value" : "destinations.value"
+                        },
+                        "returnedKey" : {
                           "type" : "constant"
-                        },
-                        "type" : {
-                          "type" : "constant",
-                          "value" : "text"
-                        },
-                        "dimension" : {
-                          "type" : "constant",
-                          "value" : 12
                         },
                         "value" : {
                           "type" : "variable",
                           "value" : "trainTicketRequest.destination"
-                        },
-                        "required" : {
-                          "type" : "constant",
-                          "value" : false
                         }
                       },
-                      "reference" : "441c071c-57df-4403-a89e-46c9497343f9",
+                      "reference" : "eb5229b6-b97b-4d64-8705-b862e8a2c7ce",
                       "hasValidationError" : false,
-                      "id" : "pbInput",
-                      "description" : ""
+                      "id" : "pbSelect"
                     }
                   ],
                   [
@@ -622,6 +628,13 @@
       "type" : "urlparameter",
       "value" : [
         "id"
+      ],
+      "exposed" : false
+    },
+    "destinations" : {
+      "type" : "url",
+      "value" : [
+        "../API/bpm/activityVariable/{{taskId}}/availableDestinations"
       ],
       "exposed" : false
     }
