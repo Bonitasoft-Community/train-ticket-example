@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
+  <process:MainProcess xmi:id="_ZIt4UKDaEe26LPKF8biRbw" name="GenerateGiftCardDiagram" bonitaModelVersion="7.12.0-004">
+    <elements xmi:type="process:Pool" xmi:id="_ZI3CQKDaEe26LPKF8biRbw" name="GenerateGiftCardPool">
+      <elements xmi:type="process:Lane" xmi:id="_ZI3CYaDaEe26LPKF8biRbw" name="Administrator lane" actor="_2xYw4KDbEe26LPKF8biRbw">
+        <elements xmi:type="process:StartEvent" xmi:id="_ZJAzQKDaEe26LPKF8biRbw" name="Start Card Generation" outgoing="_ZJAzXKDaEe26LPKF8biRbw">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_ZJAzQqDaEe26LPKF8biRbw" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_ZJAzQaDaEe26LPKF8biRbw" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_ZJAzQ6DaEe26LPKF8biRbw" name="" content="" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:ServiceTask" xmi:id="_ZJAzSKDaEe26LPKF8biRbw" name="Generate card" outgoing="_ZJKkQKDaEe26LPKF8biRbw" incoming="_ZJAzXKDaEe26LPKF8biRbw">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_ZJAzSqDaEe26LPKF8biRbw" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_ZJAzSaDaEe26LPKF8biRbw" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_ZJAzS6DaEe26LPKF8biRbw" name="" content="" returnTypeFixed="true"/>
+          <data xmi:type="process:Data" xmi:id="_RagikKDyEe26LPKF8biRbw" name="numberPattern" dataType="_ZIt4WKDaEe26LPKF8biRbw">
+            <defaultValue xmi:type="expression:Expression" xmi:id="_RagikaDyEe26LPKF8biRbw" name="init_numberPattern()" content="def max = 10000;&#xD;&#xA;def min = 100;&#xD;&#xA;def randomInt = (int)(Math.random()*((max-min)+1))+min&#xD;&#xA;&#xD;&#xA;return &quot;ACME&quot;+ randomInt;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT"/>
+          </data>
+          <operations xmi:type="expression:Operation" xmi:id="_TBzQgKDyEe26LPKF8biRbw">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_TBzQgaDyEe26LPKF8biRbw" name="giftCard" content="giftCard" type="TYPE_VARIABLE" returnType="com.mycompany.model.gift.GiftCard">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Tg0HwKDyEe26LPKF8biRbw" name="giftCard" dataType="_ZIt4W6DaEe26LPKF8biRbw" className="com.mycompany.model.gift.GiftCard"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_TBzQgqDyEe26LPKF8biRbw" name="numberPattern" content="numberPattern" type="TYPE_VARIABLE">
+              <referencedElements xmi:type="process:Data" xmi:id="_VynLQKDyEe26LPKF8biRbw" name="numberPattern" dataType="_ZIt4WKDaEe26LPKF8biRbw"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_TBzQg6DyEe26LPKF8biRbw" type="JAVA_METHOD" expression="setNumber">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <loopCondition xmi:type="expression:Expression" xmi:id="_ZJAzTKDaEe26LPKF8biRbw" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+          <loopMaximum xmi:type="expression:Expression" xmi:id="_ZJAzTaDaEe26LPKF8biRbw" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <cardinalityExpression xmi:type="expression:Expression" xmi:id="_ZJAzTqDaEe26LPKF8biRbw" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <iteratorExpression xmi:type="expression:Expression" xmi:id="_ZJAzUKDaEe26LPKF8biRbw" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
+          <completionCondition xmi:type="expression:Expression" xmi:id="_ZJAzT6DaEe26LPKF8biRbw" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:EndTerminatedEvent" xmi:id="_ZJAzVKDaEe26LPKF8biRbw" name="End Card Generation" incoming="_ZJKkQKDaEe26LPKF8biRbw">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_ZJAzVqDaEe26LPKF8biRbw" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_ZJAzVaDaEe26LPKF8biRbw" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_ZJAzV6DaEe26LPKF8biRbw" name="" content="" returnTypeFixed="true"/>
+        </elements>
+      </elements>
+      <data xmi:type="process:BusinessObjectData" xmi:id="_pK98gKDxEe26LPKF8biRbw" name="giftCard" dataType="_ZIt4W6DaEe26LPKF8biRbw" className="com.mycompany.model.gift.GiftCard">
+        <defaultValue xmi:type="expression:Expression" xmi:id="_tT0BNKDxEe26LPKF8biRbw" name="initGiftCard()" content="def giftCardVar = new com.mycompany.model.gift.GiftCard()&#xD;&#xA;giftCardVar.idAssignee = giftCardInput?.idAssignee?.trim() ? giftCardInput.idAssignee.toLong() : null&#xD;&#xA;giftCardVar.credit = giftCardInput?.credit&#xD;&#xA;giftCardVar.status = &quot;ACTIVATED&quot;&#xD;&#xA;return giftCardVar" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.mycompany.model.gift.GiftCard">
+          <referencedElements xmi:type="process:ContractInput" xmi:id="_2VTP0KDxEe26LPKF8biRbw" name="giftCardInput" type="COMPLEX"/>
+        </defaultValue>
+      </data>
+      <formMapping xmi:type="process:FormMapping" xmi:id="_ZI3CUKDaEe26LPKF8biRbw">
+        <targetForm xmi:type="expression:Expression" xmi:id="_uytBEKDxEe26LPKF8biRbw" name="newGiftCard" content="e860f605-bd6f-44e6-b81f-36520bdb4eb0" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+      </formMapping>
+      <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_ZI3CUqDaEe26LPKF8biRbw">
+        <targetForm xmi:type="expression:Expression" xmi:id="_ZI3CU6DaEe26LPKF8biRbw" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+      </overviewFormMapping>
+      <connections xmi:type="process:SequenceFlow" xmi:id="_ZJAzXKDaEe26LPKF8biRbw" target="_ZJAzSKDaEe26LPKF8biRbw" source="_ZJAzQKDaEe26LPKF8biRbw">
+        <decisionTable xmi:type="decision:DecisionTable" xmi:id="_ZJAzXaDaEe26LPKF8biRbw"/>
+        <condition xmi:type="expression:Expression" xmi:id="_ZJAzXqDaEe26LPKF8biRbw" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+      </connections>
+      <connections xmi:type="process:SequenceFlow" xmi:id="_ZJKkQKDaEe26LPKF8biRbw" target="_ZJAzVKDaEe26LPKF8biRbw" source="_ZJAzSKDaEe26LPKF8biRbw">
+        <decisionTable xmi:type="decision:DecisionTable" xmi:id="_ZJKkQaDaEe26LPKF8biRbw"/>
+        <condition xmi:type="expression:Expression" xmi:id="_ZJKkQqDaEe26LPKF8biRbw" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+      </connections>
+      <actors xmi:type="process:Actor" xmi:id="_2xYw4KDbEe26LPKF8biRbw" name="HR Administrator" initiator="true"/>
+      <contract xmi:type="process:Contract" xmi:id="_ZI3CVKDaEe26LPKF8biRbw">
+        <inputs xmi:type="process:ContractInput" xmi:id="_tT0BMKDxEe26LPKF8biRbw" name="giftCardInput" type="COMPLEX" dataReference="giftCard">
+          <inputs xmi:type="process:ContractInput" xmi:id="_tT0BMaDxEe26LPKF8biRbw" name="idAssignee"/>
+          <inputs xmi:type="process:ContractInput" xmi:id="_tT0BMqDxEe26LPKF8biRbw" name="credit" type="DECIMAL"/>
+        </inputs>
+        <constraints xmi:type="process:ContractConstraint" xmi:id="_tT0BM6DxEe26LPKF8biRbw" expression="!giftCardInput?.idAssignee || giftCardInput?.idAssignee.isLong()" errorMessage="A Long value is expected for GiftCard.idAssignee" name="type_long_giftCardInput_idAssignee">
+          <inputNames>giftCardInput</inputNames>
+        </constraints>
+      </contract>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_ZI3CQaDaEe26LPKF8biRbw">
+        <name xmi:type="expression:Expression" xmi:id="_ZI3CQqDaEe26LPKF8biRbw" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_ZI3CQ6DaEe26LPKF8biRbw" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_ZI3CRKDaEe26LPKF8biRbw">
+        <name xmi:type="expression:Expression" xmi:id="_ZI3CRaDaEe26LPKF8biRbw" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_ZI3CRqDaEe26LPKF8biRbw" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_ZI3CR6DaEe26LPKF8biRbw">
+        <name xmi:type="expression:Expression" xmi:id="_ZI3CSKDaEe26LPKF8biRbw" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_ZI3CSaDaEe26LPKF8biRbw" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_ZI3CSqDaEe26LPKF8biRbw">
+        <name xmi:type="expression:Expression" xmi:id="_ZI3CS6DaEe26LPKF8biRbw" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_ZI3CTKDaEe26LPKF8biRbw" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_ZI3CTaDaEe26LPKF8biRbw">
+        <name xmi:type="expression:Expression" xmi:id="_ZI3CTqDaEe26LPKF8biRbw" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_ZI3CT6DaEe26LPKF8biRbw" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+    </elements>
+    <datatypes xmi:type="process:BooleanType" xmi:id="_ZIt4U6DaEe26LPKF8biRbw" name="Boolean"/>
+    <datatypes xmi:type="process:DateType" xmi:id="_ZIt4VKDaEe26LPKF8biRbw" name="Date"/>
+    <datatypes xmi:type="process:IntegerType" xmi:id="_ZIt4VaDaEe26LPKF8biRbw" name="Integer"/>
+    <datatypes xmi:type="process:LongType" xmi:id="_ZIt4VqDaEe26LPKF8biRbw" name="Long"/>
+    <datatypes xmi:type="process:DoubleType" xmi:id="_ZIt4V6DaEe26LPKF8biRbw" name="Double"/>
+    <datatypes xmi:type="process:StringType" xmi:id="_ZIt4WKDaEe26LPKF8biRbw" name="Text"/>
+    <datatypes xmi:type="process:JavaType" xmi:id="_ZIt4WaDaEe26LPKF8biRbw" name="Java_object"/>
+    <datatypes xmi:type="process:XMLType" xmi:id="_ZIt4WqDaEe26LPKF8biRbw" name="XML"/>
+    <datatypes xmi:type="process:BusinessObjectType" xmi:id="_ZIt4W6DaEe26LPKF8biRbw" name="Business_Object"/>
+  </process:MainProcess>
+  <notation:Diagram xmi:id="_ZIt4UaDaEe26LPKF8biRbw" type="Process" element="_ZIt4UKDaEe26LPKF8biRbw" name="GenerateGiftCardDiagram - 1.0" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_ZI3CVaDaEe26LPKF8biRbw" type="2007" element="_ZI3CQKDaEe26LPKF8biRbw">
+      <children xmi:type="notation:DecorationNode" xmi:id="_ZI3CWqDaEe26LPKF8biRbw" type="5008"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_ZI3CW6DaEe26LPKF8biRbw" type="7001">
+        <children xmi:type="notation:Node" xmi:id="_ZI3CYqDaEe26LPKF8biRbw" type="3007" element="_ZI3CYaDaEe26LPKF8biRbw">
+          <children xmi:type="notation:DecorationNode" xmi:id="_ZI3CZ6DaEe26LPKF8biRbw" type="5007"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_ZI3CaKDaEe26LPKF8biRbw" type="7002">
+            <children xmi:type="notation:Shape" xmi:id="_ZJAzRKDaEe26LPKF8biRbw" type="3002" element="_ZJAzQKDaEe26LPKF8biRbw" fontName="Segoe UI">
+              <children xmi:type="notation:DecorationNode" xmi:id="_ZJAzRqDaEe26LPKF8biRbw" type="5024">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_ZJAzR6DaEe26LPKF8biRbw" x="-29" y="16"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZJAzRaDaEe26LPKF8biRbw" x="130" y="76"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_ZJAzUaDaEe26LPKF8biRbw" type="3027" element="_ZJAzSKDaEe26LPKF8biRbw" fontName="Segoe UI" fontHeight="12" fillColor="14334392" lineColor="10710316">
+              <children xmi:type="notation:DecorationNode" xmi:id="_ZJAzU6DaEe26LPKF8biRbw" type="5017"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZJAzUqDaEe26LPKF8biRbw" x="326" y="62" width="154" height="77"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_ZJAzWKDaEe26LPKF8biRbw" type="3062" element="_ZJAzVKDaEe26LPKF8biRbw" fontName="Segoe UI">
+              <children xmi:type="notation:DecorationNode" xmi:id="_ZJAzWqDaEe26LPKF8biRbw" type="5090">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_ZJAzW6DaEe26LPKF8biRbw" x="-28" y="19"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZJAzWaDaEe26LPKF8biRbw" x="637" y="85"/>
+            </children>
+          </children>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_ZI3CY6DaEe26LPKF8biRbw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ZI3CZKDaEe26LPKF8biRbw" fontName="Segoe UI" fontHeight="14"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_ZI3CZaDaEe26LPKF8biRbw" lineColor="12632256"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_ZI3CaaDaEe26LPKF8biRbw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZI3CZqDaEe26LPKF8biRbw" x="39" y="10" width="1356" height="283"/>
+        </children>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_ZI3CVqDaEe26LPKF8biRbw"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_ZI3CV6DaEe26LPKF8biRbw" fontName="Segoe UI" fontHeight="14"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_ZI3CWKDaEe26LPKF8biRbw" lineColor="12632256"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_ZI3CXKDaEe26LPKF8biRbw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZI3CWaDaEe26LPKF8biRbw" width="1385" height="276"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_ZIt4UqDaEe26LPKF8biRbw"/>
+    <edges xmi:type="notation:Connector" xmi:id="_ZJAzX6DaEe26LPKF8biRbw" type="4001" element="_ZJAzXKDaEe26LPKF8biRbw" source="_ZJAzRKDaEe26LPKF8biRbw" target="_ZJAzUaDaEe26LPKF8biRbw" roundedBendpointsRadius="10" routing="Rectilinear" lineColor="12632256">
+      <children xmi:type="notation:DecorationNode" xmi:id="_ZJAzYqDaEe26LPKF8biRbw" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ZJAzY6DaEe26LPKF8biRbw" y="-10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_ZJAzYKDaEe26LPKF8biRbw" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZJAzYaDaEe26LPKF8biRbw" points="[0, 0, -127, 0]$[127, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_ZJKkQ6DaEe26LPKF8biRbw" type="4001" element="_ZJKkQKDaEe26LPKF8biRbw" source="_ZJAzUaDaEe26LPKF8biRbw" target="_ZJAzWKDaEe26LPKF8biRbw" roundedBendpointsRadius="10" routing="Rectilinear" lineColor="12632256">
+      <children xmi:type="notation:DecorationNode" xmi:id="_ZJKkRqDaEe26LPKF8biRbw" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ZJKkR6DaEe26LPKF8biRbw" y="-10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_ZJKkRKDaEe26LPKF8biRbw" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZJKkRaDaEe26LPKF8biRbw" points="[0, 0, -115, 0]$[115, 0, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

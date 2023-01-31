@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<businessObjectModel xmlns="http://documentation.bonitasoft.com/bdm-xml-schema/1.0" modelVersion="1.0" productVersion="7.15.0">
+    <businessObjects>
+        <businessObject qualifiedName="com.mycompany.model.GiftCardPaymentRequest">
+            <fields>
+                <field type="DOUBLE" length="255" name="amount" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="status" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="cardNumber" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.mycompany.model.TrainTicketRequest" fetchType="LAZY" name="trainTicketRequest" nullable="true" collection="false">
+                    <description>the train ticket request </description>
+                </relationField>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.mycompany.model.TrainTicketRequest">
+            <fields>
+                <field type="LONG" length="255" name="idRequester" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="country" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="destination" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="status" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.mycompany.model.gift.GiftCard">
+            <fields>
+                <field type="LONG" length="255" name="idAssignee" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="status" nullable="true" collection="false"/>
+                <field type="DOUBLE" length="255" name="credit" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="number" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints>
+                <uniqueConstraint name="uniqueConstraint">
+                    <fieldNames>
+                        <fieldName>number</fieldName>
+                        <fieldName>idAssignee</fieldName>
+                    </fieldNames>
+                </uniqueConstraint>
+            </uniqueConstraints>
+            <queries/>
+            <indexes/>
+        </businessObject>
+    </businessObjects>
+</businessObjectModel>
