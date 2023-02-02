@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:connectorconfiguration="http://wwww.bonitasoft.org/model/connector/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xmlns:transitions="http://www.bonitasoft.org/ns/studio/process/decision/transitions" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision http://www.bonitasoft.org/ns/studio/process/decision/transitions http://www.bonitasoft.org/ns/studio/process#//decision/transitions">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:connectorconfiguration="http://wwww.bonitasoft.org/model/connector/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xmlns:transitions="http://www.bonitasoft.org/ns/studio/process/decision/transitions" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision http://www.bonitasoft.org/ns/studio/process/decision/transitions http://www.bonitasoft.org/ns/studio/process#//decision/transitions">
   <process:MainProcess xmi:id="_LibsAKDeEe26LPKF8biRbw" name="TrainTicketRequestDiagram" version="1.1" bonitaModelVersion="7.12.0-004">
     <elements xmi:type="process:Pool" xmi:id="_LibsAaDeEe26LPKF8biRbw" name="TrainTicketRequestPool" version="1.1">
       <elements xmi:type="process:Lane" xmi:id="_LibsAqDeEe26LPKF8biRbw" name="Traveler lane" actor="_Libsg6DeEe26LPKF8biRbw">
@@ -70,7 +70,7 @@
               </parameters>
             </configuration>
             <outputs xmi:type="expression:Operation" xmi:id="_s9RH4qFREe21p7tIQYBOFA">
-              <leftOperand xmi:type="expression:Expression" xmi:id="_s9RH46FREe21p7tIQYBOFA" name="availableDestinations" content="availableDestinations" type="TYPE_VARIABLE" returnType="java.util.List" returnTypeFixed="true">
+              <leftOperand xmi:type="expression:Expression" xmi:id="_s9RH46FREe21p7tIQYBOFA" name="availableDestinations" content="availableDestinations" type="TYPE_VARIABLE" returnType="java.util.Collection" returnTypeFixed="true">
                 <referencedElements xmi:type="process:Data" xmi:id="_s9RH5KFREe21p7tIQYBOFA" name="availableDestinations" multiple="true" dataType="_LibsmaDeEe26LPKF8biRbw"/>
               </leftOperand>
               <rightOperand xmi:type="expression:Expression" xmi:id="_s9RH5aFREe21p7tIQYBOFA" name="nRowOneColResult" content="nRowOneColResult" type="CONNECTOR_OUTPUT_TYPE" returnType="java.util.List">
@@ -270,6 +270,65 @@
         <condition xmi:type="expression:Expression" xmi:id="_LibsgqDeEe26LPKF8biRbw" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
       <actors xmi:type="process:Actor" xmi:id="_Libsg6DeEe26LPKF8biRbw" name="Traveler" initiator="true"/>
+      <configurations xmi:type="configuration:Configuration" xmi:id="_AAp5QKL_Ee2SRq3TgPfTDA" name="Qualification" version="7.12.0-004" username="walter.bates">
+        <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_AAtjoKL_Ee2SRq3TgPfTDA">
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_AAtjoaL_Ee2SRq3TgPfTDA" name="Traveler">
+            <groups xmi:type="actormapping:Groups" xmi:id="_AAtjoqL_Ee2SRq3TgPfTDA"/>
+            <memberships xmi:type="actormapping:Membership" xmi:id="_AAtjo6L_Ee2SRq3TgPfTDA"/>
+            <roles xmi:type="actormapping:Roles" xmi:id="_AAtjpKL_Ee2SRq3TgPfTDA">
+              <role>member</role>
+            </roles>
+            <users xmi:type="actormapping:Users" xmi:id="_AAtjpaL_Ee2SRq3TgPfTDA"/>
+          </actorMapping>
+        </actorMappings>
+        <definitionMappings xmi:type="configuration:DefinitionMapping" xmi:id="_AAp5QaL_Ee2SRq3TgPfTDA" type="CONNECTOR" definitionId="database-mysql" definitionVersion="1.0.0" implementationId="database-mysql-impl" implementationVersion="2.0.3"/>
+        <definitionMappings xmi:type="configuration:DefinitionMapping" xmi:id="_AAp5QqL_Ee2SRq3TgPfTDA" type="ACTOR_FILTER" definitionId="bonita-actorfilter-initiator" definitionVersion="1.0" implementationId="bonita-actorfilter-initiator-impl" implementationVersion="1.0.0"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_AAp5Q6L_Ee2SRq3TgPfTDA" id="CONNECTOR">
+          <children xmi:type="configuration:FragmentContainer" xmi:id="_AAp5RKL_Ee2SRq3TgPfTDA" id="database-mysql-impl-2.0.3">
+            <fragments xmi:type="configuration:Fragment" xmi:id="_AAp5RaL_Ee2SRq3TgPfTDA" key="database-mysql-impl -- 2.0.3" value="bonita-connector-database-2.0.3.jar" type="CONNECTOR"/>
+          </children>
+        </processDependencies>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_AAp5RqL_Ee2SRq3TgPfTDA" id="GROOVY_SCRIPT"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_AAp5R6L_Ee2SRq3TgPfTDA" id="ACTOR_FILTER">
+          <children xmi:type="configuration:FragmentContainer" xmi:id="_AAp5SKL_Ee2SRq3TgPfTDA" id="bonita-actorfilter-initiator-impl-1.0.0">
+            <fragments xmi:type="configuration:Fragment" xmi:id="_AAp5SaL_Ee2SRq3TgPfTDA" key="bonita-actorfilter-initiator-impl -- 1.0.0" value="bonita-actorfilter-initiator-1.0.0.jar" type="ACTOR_FILTER"/>
+          </children>
+        </processDependencies>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_AAp5SqL_Ee2SRq3TgPfTDA" id="OTHER"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_AAp5S6L_Ee2SRq3TgPfTDA" id="GROOVY_SCRIPT"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_AAp5TKL_Ee2SRq3TgPfTDA" id="OTHER"/>
+      </configurations>
+      <configurations xmi:type="configuration:Configuration" xmi:id="_uqbX0KL_Ee2SRq3TgPfTDA" name="dev" version="7.12.0-004" username="walter.bates">
+        <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_uqbX0aL_Ee2SRq3TgPfTDA">
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_uqbX0qL_Ee2SRq3TgPfTDA" name="Traveler">
+            <groups xmi:type="actormapping:Groups" xmi:id="_uqbX06L_Ee2SRq3TgPfTDA"/>
+            <memberships xmi:type="actormapping:Membership" xmi:id="_uqbX1KL_Ee2SRq3TgPfTDA"/>
+            <roles xmi:type="actormapping:Roles" xmi:id="_uqbX1aL_Ee2SRq3TgPfTDA">
+              <role>member</role>
+            </roles>
+            <users xmi:type="actormapping:Users" xmi:id="_uqbX1qL_Ee2SRq3TgPfTDA"/>
+          </actorMapping>
+        </actorMappings>
+        <definitionMappings xmi:type="configuration:DefinitionMapping" xmi:id="_uqbX16L_Ee2SRq3TgPfTDA" type="CONNECTOR" definitionId="database-mysql" definitionVersion="1.0.0" implementationId="database-mysql-impl" implementationVersion="2.0.3"/>
+        <definitionMappings xmi:type="configuration:DefinitionMapping" xmi:id="_uqbX2KL_Ee2SRq3TgPfTDA" type="ACTOR_FILTER" definitionId="bonita-actorfilter-initiator" definitionVersion="1.0" implementationId="bonita-actorfilter-initiator-impl" implementationVersion="1.0.0"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_uqbX2aL_Ee2SRq3TgPfTDA" id="CONNECTOR">
+          <children xmi:type="configuration:FragmentContainer" xmi:id="_uqbX2qL_Ee2SRq3TgPfTDA" id="database-mysql-impl-2.0.3">
+            <fragments xmi:type="configuration:Fragment" xmi:id="_uqbX26L_Ee2SRq3TgPfTDA" key="database-mysql-impl -- 2.0.3" value="bonita-connector-database-2.0.3.jar" type="CONNECTOR"/>
+          </children>
+        </processDependencies>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_uqbX3KL_Ee2SRq3TgPfTDA" id="GROOVY_SCRIPT"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_uqbX3aL_Ee2SRq3TgPfTDA" id="ACTOR_FILTER">
+          <children xmi:type="configuration:FragmentContainer" xmi:id="_uqbX3qL_Ee2SRq3TgPfTDA" id="bonita-actorfilter-initiator-impl-1.0.0">
+            <fragments xmi:type="configuration:Fragment" xmi:id="_uqbX36L_Ee2SRq3TgPfTDA" key="bonita-actorfilter-initiator-impl -- 1.0.0" value="bonita-actorfilter-initiator-1.0.0.jar" type="ACTOR_FILTER"/>
+          </children>
+        </processDependencies>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_uqbX4KL_Ee2SRq3TgPfTDA" id="OTHER">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_-MGV8KL_Ee2SRq3TgPfTDA" key="mysql-connector-java-8.0.23.jar" value="mysql-connector-java-8.0.23.jar" type="JAR"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_-MG9AKL_Ee2SRq3TgPfTDA" key="protobuf-java-3.11.4.jar" value="protobuf-java-3.11.4.jar" type="JAR"/>
+        </processDependencies>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_uqbX4aL_Ee2SRq3TgPfTDA" id="GROOVY_SCRIPT"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_uqbX4qL_Ee2SRq3TgPfTDA" id="OTHER"/>
+      </configurations>
       <contract xmi:type="process:Contract" xmi:id="_LibshKDeEe26LPKF8biRbw">
         <inputs xmi:type="process:ContractInput" xmi:id="_Z_M3kKDeEe26LPKF8biRbw" name="trainTicketRequestInput" type="COMPLEX" dataReference="trainTicketRequest">
           <inputs xmi:type="process:ContractInput" xmi:id="_Z_M3kaDeEe26LPKF8biRbw" name="country"/>
